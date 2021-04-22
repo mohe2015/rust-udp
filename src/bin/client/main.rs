@@ -8,7 +8,7 @@ async fn main() -> io::Result<()> {
 
     let addr = "[2003:c0:470d:e2c8:8a3:837b:5f1b:73d9]:1337";
     socket.connect(addr).await?;
-    let mut buf = [0; 1024];
+    let mut buf = [0; 8192];
     loop {
         let len = socket.send_to(&buf, addr).await?;
         //println!("{:?} bytes sent", len);

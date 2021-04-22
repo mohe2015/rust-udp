@@ -11,10 +11,10 @@ async fn main() -> io::Result<()> {
     let mut buf = [0; 1024];
     loop {
         let len = socket.send_to(&buf, addr).await?;
-        println!("{:?} bytes sent", len);
+        //println!("{:?} bytes sent", len);
 
         let (len, addr) = socket.recv_from(&mut buf).await?;
-        println!("{:?} bytes received from {:?}", len, addr);
+        //println!("{:?} bytes received from {:?}", len, addr);
     }
 
     Ok(())

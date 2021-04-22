@@ -28,7 +28,8 @@ async fn main() -> io::Result<()> {
         println!("starting a process");
         handles.push(tokio::spawn(async move {
             // Process each socket concurrently.
-            process().await
+            let result = process().await;
+            println!("{:?}", result);
         }));
     }
     futures::future::join_all(handles).await;

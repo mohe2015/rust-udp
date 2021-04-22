@@ -6,6 +6,7 @@ async fn main() -> io::Result<()> {
     let socket = UdpSocket::bind("[::]:1337").await?;
     println!("Listening on [::]:1337");
 
+    socket.connect("192.168.2.121:1337").await?;
     let mut buf = [0; 1024];
     loop {
         let (len, addr) = socket.recv_from(&mut buf).await?;

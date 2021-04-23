@@ -6,8 +6,8 @@ async fn process() -> io::Result<()> {
     let socket = UdpSocket::bind("[::]:0").await?;
     println!("Listening on [::]:1338");
 
-    //let addr = "[2003:c0:470d:e2c8:8a3:837b:5f1b:73d9]:1337".parse::<SocketAddr>().unwrap();
-    let addr = "[2003:c0:470d:e2c8:78a4:681c:1c74:3a7a]:1337".parse::<SocketAddr>().unwrap();
+    let addr = "[2003:c0:470d:e2c8:8a3:837b:5f1b:73d9]:1337".parse::<SocketAddr>().unwrap(); // pi
+    //let addr = "[2003:c0:470d:e2c8:78a4:681c:1c74:3a7a]:1337".parse::<SocketAddr>().unwrap(); // laptop
     socket.connect(addr).await?;
     let mut buf = [0; 8192];
     loop {
